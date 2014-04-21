@@ -6,8 +6,8 @@ class Model_JWPlayer extends CI_Model {
         parent::__construct();
     }
 
-    function getIntroPlaylist() {
-        return file_get_contents("assets/js/custom.json");
+    function getIntroVid() {
+        return json_encode($this->config->item('introPlaylist'));
     }
 
 }
