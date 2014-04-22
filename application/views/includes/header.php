@@ -7,25 +7,25 @@
         <meta name="keywords" content="" />
         <link href="http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,700,900" rel="stylesheet" />
         <!--[if lte IE 8]><script src="js/html5shiv.js"></script><link rel="stylesheet" href="css/ie8.css" /><![endif]-->
-        <script src="assets/js/lib/jquery.min.js"></script>
-        <script src="assets/js/lib/jquery.dropotron.min.js"></script>
-        <script src="assets/js/lib/functions.js"></script>
-        <script src="assets/js/lib/config.js"></script>
-        <script src="assets/js/lib/skel.min.js"></script>
-        <script src="assets/js/lib/skel-panels.min.js"></script>
-        <script src="assets/js/lib/jquery.min.js"></script>
-        <script type="text/javascript" src="assets/js/forms.js"/></script>
-        <script src="assets/js/lib/helper_functions.js"></script>
-        <script  src="assets/js/lib/jwplayer/jwplayer.js" type="text/javascript"></script>
+        <script src="<?php echo site_url(); ?>assets/js/lib/jquery.min.js"></script>
+        <script src="<?php echo site_url(); ?>assets/js/lib/jquery.dropotron.min.js"></script>
+        <script src="<?php echo site_url(); ?>assets/js/lib/functions.js"></script>
+        <script src="<?php echo site_url(); ?>assets/js/lib/config.js"></script>
+        <script src="<?php echo site_url(); ?>assets/js/lib/skel.min.js"></script>
+        <script src="<?php echo site_url(); ?>assets/js/lib/skel-panels.min.js"></script>
+        <script src="<?php echo site_url(); ?>assets/js/lib/jquery.min.js"></script>
+        <script type="text/javascript" src="<?php echo site_url(); ?>assets/js/forms.js"/></script>
+        <script src="<?php echo site_url(); ?>assets/js/lib/helper_functions.js"></script>
+        <script  src="<?php echo site_url(); ?>assets/js/lib/jwplayer/jwplayer.js" type="text/javascript"></script>
         <script type="text/javascript">jwplayer.key = "QAXioNfnQhKWs1EQqehqG45yEnFmHKI7Z2i7zQ==";</script>
         
-        <script src="assets/js/common.js"></script>
-        <noscript>
-        <link rel="stylesheet" href="assets/css/form.css" />
-        <link rel="stylesheet" href="assets/css/skel-noscript.css" />
-        <link rel="stylesheet" href="assets/css/style.css" />
-        <link rel="stylesheet" href="assets/css/style-desktop.css" />
-        </noscript>
+        <script src="<?php echo site_url(); ?>assets/js/common.js"></script>
+        
+        <link rel="stylesheet" href="<?php echo site_url(); ?>assets/css/form.css" />
+        <link rel="stylesheet" href="<?php echo site_url(); ?>assets/css/skel-noscript.css" />
+        <link rel="stylesheet" href="<?php echo site_url(); ?>assets/css/style.css" />
+        <link rel="stylesheet" href="<?php echo site_url(); ?>assets/css/style-desktop.css" />
+       
     </head>
     
     
@@ -41,7 +41,7 @@
 
                         <!-- Logo --> 
                         <div id="logo">
-                           <img src="assets/images/logo.png"/>
+                            <img src="<?php echo site_url(); ?>assets/images/logo.png"/>
                             <!--<span class="byline">A free responsive site template by HTML5 UP</span>-->
                         </div>
                         <!-- /Logo -->

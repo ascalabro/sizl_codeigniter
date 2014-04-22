@@ -1,5 +1,4 @@
 
-    <!-- Intro Wrapper -->
     <div id="form-wrapper" class="wrapper wrapper-style1">
         <!--<div class="title">The Introduction</div>-->
         <div class="container">
@@ -10,18 +9,21 @@
                 <section class="footer-one">
                     <div id="form_container">
 
-                        <form class="appnitro"  id="register_form" method="post" action="lib/scripts/processRegistration.php">
+                        <form class="appnitro"  id="register_form" method="post" action="<?php echo site_url() ?>registration/register_user">
                             <input name="ip" type="hidden" value="<?php echo $_SERVER['REMOTE_ADDR']; ?>"/>
                             <div class="form_description">
                                 <h2>Sign Up</h2>
                                 <p>Fill out the form below and then click submit to access instant streaming video.</p>
-                            </div>					
+                            </div>
+                            
+                            <?php echo validation_errors("<p class='error'>"); ?>
+
 
                             <ul >
                                 <li>
                                     <label class="description" for="element_7">Email (This will be used to log in)</label>
                                     <div>
-                                        <input id="element_7" name="email" class="element text medium" type="email" maxlength="255" value=""/> 
+                                        <input id="element_7" name="email" class="element text medium" type="email" maxlength="255" value="<?php echo set_value('email'); ?>"/> 
                                     </div> 
                                 </li>
 
@@ -31,36 +33,35 @@
                                         <input id="element_7" name="password" class="element text medium" type="password" maxlength="255" value=""/> 
                                     </div> 
                                 </li>
-
                                 <li id="li_1" >
                                     <label class="description" for="element_1">First Name: </label>
                                     <div>
-                                        <input id="element_1" name="first_name" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="element_1" name="first_name" class="element text medium" type="text" maxlength="255" value="<?php echo set_value('first_name'); ?>"/> 
                                     </div>
                                 </li>		<li id="li_2" >
                                     <label class="description" for="element_2">Last Name </label>
                                     <div>
-                                        <input id="element_2" name="last_name" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="element_2" name="last_name" class="element text medium" type="text" maxlength="255" value="<?php echo set_value('last_name'); ?>"/> 
                                     </div>
                                 </li>		<li id="li_3" >
                                     <label class="description" for="element_3">Billing Address  </label>
                                     <div>
-                                        <input id="element_3" name="billing_address" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="element_3" name="billing_address" class="element text medium" type="text" maxlength="255" value="<?php echo set_value('billing_address'); ?>"/> 
                                     </div> 
                                 </li>		<li id="li_4" >
                                     <label class="description" for="element_4">City </label>
                                     <div>
-                                        <input id="element_4" name="city" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="element_4" name="city" class="element text medium" type="text" maxlength="255" value="<?php echo set_value('city'); ?>"/> 
                                     </div> 
                                 </li>		<li id="li_5" >
                                     <label class="description" for="element_5">State or Province </label>
                                     <div>
-                                        <input id="element_5" name="state_prov" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="element_5" name="state_prov" class="element text medium" type="text" maxlength="255" value="<?php echo set_value('state_prov'); ?>"/> 
                                     </div> 
                                 </li>		<li id="li_6" >
                                     <label class="description" for="element_6">Zip/Postal Code </label>
                                     <div>
-                                        <input id="element_6" name="postal" class="element text medium" type="text" maxlength="255" value=""/> 
+                                        <input id="element_6" name="postal" class="element text medium" type="text" maxlength="255" value="<?php echo set_value('postal'); ?>"/> 
                                     </div> 
                                 </li>		<li id="li_8" >
                                     <label class="description" for="element_8">Country </label>
