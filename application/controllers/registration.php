@@ -13,8 +13,9 @@ class Registration extends CI_Controller {
             $this->load->library('form_validation');
             $this->load->helper('creditcard_helper');
             // Rules for becoming a member
-            $this->form_validation->set_rules('email','Email Address','trim|required|min_length[6]|max_length[50]|valid_email');
+            $this->form_validation->set_rules('email','Email Address','trim|required|min_length[6]|max_length[50]|valid_email|is_unique[mem_users.username]|is_unique[new_users.username]');
             $this->form_validation->set_rules('password','Password','trim|required|min_length[6]|max_length[50]|matches[password_conf]|xss_clean');
+            $this->form_validation->set_rules('password_conf','Password Match','trim|required|min_length[6]|max_length[50]|matches[password]|xss_clean');
             $this->form_validation->set_rules('first_name','First Name', 'trim|required|min_length[3]|max_length[14]|xss_clean');
             $this->form_validation->set_rules('last_name','Last Name', 'trim|required|min_length[2]|max_length[14]|xss_clean');
             $this->form_validation->set_rules('billing_address','Billing Address', 'trim|required|min_length[3]|max_length[89]|xss_clean');
@@ -22,6 +23,7 @@ class Registration extends CI_Controller {
             $this->form_validation->set_rules('state_prov','State/Province','required');
             $this->form_validation->set_rules('postal','Postal Code','required');
             $this->form_validation->set_rules('country','Country','required');
+            $this->form_validation->set_rules('phone','Phone Number','required|numeric|min_length[10]|');
 //            $this->form_validation->set_rules('card_brand','Card Type','required');
 //            $this->form_validation->set_rules('expiry_date','Expire Date','');
 //            $this->form_validation->set_rules('card_number','Card Number','required|trim|required|min_length[15]|max_length[20]|xss_clean|numeric');
@@ -40,8 +42,18 @@ class Registration extends CI_Controller {
                 
             } else
             {
-                $data['view'] = 'view_reg_success';
-                $this->load->view('default',$data);
+                // this means registration was validated
+                $this->load->model('model_user');
+                
+                // returns users first name if successful
+                $result = $this->model_user->insert_user();
+                
+                if ($result){
+                    $data['view'] = 'view_reg_success';
+                    $data['firstname'] = $result;
+                    $this->load->view('default',$data);
+                }
+                
             }
         }
 }

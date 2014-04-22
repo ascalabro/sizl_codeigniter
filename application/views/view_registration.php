@@ -33,6 +33,12 @@
                                         <input id="element_7" name="password" class="element text medium" type="password" maxlength="255" value=""/> 
                                     </div> 
                                 </li>
+                                <li>
+                                    <label class="description" for="element_7">Password (Again)</label>
+                                    <div>
+                                        <input id="element_7" name="password_conf" class="element text medium" type="password" maxlength="255" value=""/> 
+                                    </div> 
+                                </li>
                                 <li id="li_1" >
                                     <label class="description" for="element_1">First Name: </label>
                                     <div>
@@ -321,6 +327,12 @@
                                         </select>
                                     </div> 
                                 </li>	
+                                <li id="li_7" >
+                                    <label class="description" for="element_2">Phone </label>
+                                    <div>
+                                        <input id="element_2" name="phone" class="element text medium" type="text" maxlength="255" value="<?php echo set_value('phone'); ?>"/> 
+                                    </div>
+                                </li>
                                 <li id="ccc">
                                     <label class="description" for="element_7">Payment </label>
                                     <div>
