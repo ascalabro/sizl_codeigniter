@@ -45,6 +45,8 @@ class Model_user extends CI_Model {
 
         if ($this->db->affected_rows() === 1) {
             // EMAIL THE GUY IN CHARGE OF PAYMENTS GET PAYMENT AFTER USER HAS BEEN ADDED
+            $this->set_session($first_name,$last_name,$country, $email);
+            
             return $first_name;
         } else {
             /*  Notify the admin by email that the user registration
@@ -59,6 +61,23 @@ class Model_user extends CI_Model {
                 
             }
         }
+    }
+    
+    public function set_session($first_name, $last_name, $country, $email){
+        $sql = "SELECT user_id FROM new_users WHERE username = '" . $email . "' LIMIT 1";
+        $result = $this->db->query($sql);
+        $row = $result->row();
+        
+        $sess_data = array(
+            'user_id'   =>   $row->user_id,
+            'firstname' =>   $first_name,
+            'lastname'  =>   $last_name,
+            'country'   =>   $country,
+            'email'     =>   $email,
+            'logged_in' =>   0
+        );
+        
+        $this->session->set_userdata($sess_data);
     }
 
 }
