@@ -1,6 +1,8 @@
 <?php
 
 class Model_user extends CI_Model {
+    
+    private $email_code;
 
     public function __construct() {
         parent::__construct();
@@ -46,7 +48,7 @@ class Model_user extends CI_Model {
         if ($this->db->affected_rows() === 1) {
             // EMAIL THE GUY IN CHARGE OF PAYMENTS GET PAYMENT AFTER USER HAS BEEN ADDED
             $this->set_session($first_name,$last_name,$country, $email);
-            
+            $this->send_validation_email();
             return $first_name;
         } else {
             /*  Notify the admin by email that the user registration
@@ -64,7 +66,7 @@ class Model_user extends CI_Model {
     }
     
     public function set_session($first_name, $last_name, $country, $email){
-        $sql = "SELECT user_id FROM new_users WHERE username = '" . $email . "' LIMIT 1";
+        $sql = "SELECT user_id, reg_time FROM new_users WHERE username = '" . $email . "' LIMIT 1";
         $result = $this->db->query($sql);
         $row = $result->row();
         
@@ -76,8 +78,32 @@ class Model_user extends CI_Model {
             'email'     =>   $email,
             'logged_in' =>   0
         );
-        
+        $this->email_code = md5((string)$row->reg_time);
         $this->session->set_userdata($sess_data);
+    }
+    
+    private function send_validation_email() {
+        $this->load->library('email');
+        $email = $this->session->userdata('email');
+        
+        $this->email->set_mailtype('html');
+        $this->email->from($this->config->item('bot_email'),'Freight Forum');
+        $this->email->to('angelo@affableitsolutions.com');
+        $this->email->subject('Please activate your account at Freight Forum');
+        
+        $message = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+            "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd"><html>
+            <meta http-equiv="Content-Type" content="text/html; charset-utf-8" />
+            </head><body>';
+        $message .= '<p>Dear ' . $this->session->userdata('firstname') . ',</p>';
+        // the link we send will look like /register/validate_email/john@doe.com/d2724727247sdfasdf73477a4f
+        $message .= '<p>Thanks for registering on Sizl.tv! Please <strong><a href="' . base_url() . 'register/validate_email/' . $email . '/' . 
+                $email_code . '">click here</a></strong> to activate your account. After you activate you are activated.';
+        $message .= '<p>thank you!</p>';
+        $message .= '<p> The Team at Sizl.tv</p>';
+        $message .= '</body></html>';
+        
+        $this->email->message($message);
     }
 
 }

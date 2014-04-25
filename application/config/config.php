@@ -358,5 +358,13 @@ $config['rewrite_short_tags'] = FALSE;
 $config['proxy_ips'] = '';
 
 
+/*
+ * 
+ * Bot Email noreply@sizl.tv
+ * 
+ */
+
+$config['noreply_email'] = 'no-reply@sizl.tv';
+
 /* End of file config.php */
 /* Location: ./application/config/config.php */
