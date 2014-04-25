@@ -87,7 +87,7 @@ class Model_user extends CI_Model {
         $email = $this->session->userdata('email');
         
         $this->email->set_mailtype('html');
-        $this->email->from($this->config->item('bot_email'),'Freight Forum');
+        $this->email->from($this->config->item('noreply_email'),'Freight Forum');
         $this->email->to('angelo@affableitsolutions.com');
         $this->email->subject('Please activate your account at Freight Forum');
         
@@ -98,12 +98,16 @@ class Model_user extends CI_Model {
         $message .= '<p>Dear ' . $this->session->userdata('firstname') . ',</p>';
         // the link we send will look like /register/validate_email/john@doe.com/d2724727247sdfasdf73477a4f
         $message .= '<p>Thanks for registering on Sizl.tv! Please <strong><a href="' . base_url() . 'register/validate_email/' . $email . '/' . 
-                $email_code . '">click here</a></strong> to activate your account. After you activate you are activated.';
+                $this->email_code . '">click here</a></strong> to activate your account. After you activate you are activated.';
         $message .= '<p>thank you!</p>';
         $message .= '<p> The Team at Sizl.tv</p>';
         $message .= '</body></html>';
         
         $this->email->message($message);
+    }
+    
+    public function validate_email($email_address, $email_code){
+        
     }
 
 }
