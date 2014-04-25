@@ -8,7 +8,7 @@
                 <!-- Highlights -->
                 <div id="highlights">
                     <div>
-				<form action='lib/scripts/authUser.php' method="post" name="login_form" class="login_form form-3">
+				<form action='/login/login_user' method="post" name="login_form" class="login_form form-3">
 				    <p class="clearfix">
                                         <input type="hidden" name="domain" value="mem" />
                                         <input type="hidden" name="ip" value="127.0.0.1" />

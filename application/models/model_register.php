@@ -1,6 +1,6 @@
-<?php
+<?php if (!defined('BASEPATH')) exit('No direct script access allowed');
 
-class Model_user extends CI_Model {
+class Model_register extends CI_Model {
 
     private $email_code;
 
@@ -65,7 +65,7 @@ class Model_user extends CI_Model {
         }
     }
 
-    public function set_session($first_name, $last_name, $country, $email) {
+    private function set_session($first_name, $last_name, $country, $email) {
         $sql = "SELECT user_id, reg_time FROM new_users WHERE username = '" . $email . "' LIMIT 1";
         $result = $this->db->query($sql);
         $row = $result->row();
@@ -105,10 +105,12 @@ class Model_user extends CI_Model {
     }
 
     public function activate_account($email_address) {
-//        $sql = "UPDATE new_users SET active = 1 WHERE email = '" . $email_address . "' LIMIT 1";
         $sql = "INSERT INTO mem_users SELECT * FROM new_users WHERE buyer_email = '" . $email_address . "' LIMIT 1";
         $this->db->query($sql);
         if ($this->db->affected_rows() === 1) {
+            // successful insertion, now delete from the new_users table
+            $sql = "DELETE FROM new_users WHERE buyer_email = '" . $email_address . "' LIMIT 1";
+            $this->db->query($sql);
             return TRUE;
         } else {
             // this should really never happen
