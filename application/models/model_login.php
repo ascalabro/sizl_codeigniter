@@ -30,8 +30,8 @@ class model_login extends CI_Model {
         } else {
             // test if the user is a new member and not activated yet
             $newuser_sql = "SELECT buyer_email FROM new_users WHERE buyer_email = '{$email}' LIMIT 1";
-            $result = $this->db->query($members_sql);
-            return $result->num_rows() == 1 ? 'not_activated' : 'email_not_found' ;
+            $result = $this->db->query($newuser_sql);
+            return $result->num_rows() === 1 ? 'not_activated' : 'email_not_found' ;
         } 
     }
     
