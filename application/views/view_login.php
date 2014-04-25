@@ -20,7 +20,7 @@
 				    </p>
 				    <p>
 				        <input type="submit" name="submit" value="Sign in">
-                                        <span>Not a member? Join <a href="<?php echo site_url(); ?>register.php">here</a>.</span>
+                                        <span>Not a member? Join <a href="<?php echo site_url(); ?>register">here</a>.</span>
 				    </p>       
 				</form>
                     </div>

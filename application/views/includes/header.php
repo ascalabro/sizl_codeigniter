@@ -49,8 +49,16 @@
                         <!-- Nav -->
                         <nav id="nav">
                             <ul>
-                                <li class="current_page_item"><a href="<?php echo site_url(); ?>registration">Sign Up</a></li>
-                                <li><a href="<?php echo site_url(); ?>login">Sign In</a></li>
+                                <?php 
+                                if (isset($logged_in) && $logged_in == TRUE){
+                                    $firstname = $this->session->userdata('firstname');
+                                    echo "<li class=''>Welcome {$firstname} </li>";
+                                    echo "<li><a href='" . site_url() . "logout'>Log Out</a></li>";
+                                } else {
+                                    echo "<li class='current_page_item'><a href='" . site_url() . "registration'>Sign Up</a></li>";
+                                    echo "<li><a href='" . site_url() . "login'>Sign In</a></li>";
+                                }
+                                ?>
                                 <!--												<li><a href="right-sidebar.html">Right Sidebar</a></li>
                                                                                                                                 <li><a href="left-sidebar.html">Left Sidebar</a></li>
                                                                                                                                 <li><a href="no-sidebar.html">No Sidebar</a></li>-->
