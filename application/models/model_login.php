@@ -8,12 +8,12 @@ class model_login extends CI_Model {
         $domain = $this->input->post('domain');
         $ip = $this->input->post('ip');
         
-        $members_sql = "SELECT user_id, buyer_first_name, buyer_last_name, buyer_email, buyer_country, password FROM " . $domain . "_users WHERE buyer_email = '{$email}' LIMIT 1";
+        $members_sql = "SELECT user_id, buyer_first_name, buyer_last_name, buyer_email, buyer_country, passwordhash FROM " . $domain . "_users WHERE buyer_email = '{$email}' LIMIT 1";
         $result = $this->db->query($members_sql);
         $row = $result->row();
         
         if ($result->num_rows() === 1) {
-            if($row->password === md5($password)){
+            if($row->passwordhash === md5($password)){
                 // authenticated, now update the user's session 
                 $session_data = array(
                     'user_id'   =>  $row->user_id,
@@ -44,7 +44,6 @@ class model_login extends CI_Model {
             'country' => $session_data['country'],
             'logged_in' => 1
         );
-        
         $this->session->set_userdata($sess_data);
     }
 }

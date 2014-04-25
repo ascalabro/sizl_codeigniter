@@ -21,26 +21,35 @@ class Login extends CI_Controller {
         
         if ($this->form_validation->run() == FALSE) {
             // user didn't validate login form, send him back to form (and show errors)
+            $data['result'] = 'form invalid';
             $data['view'] = 'view_login';
             $this->load->view('default', $data);
-        }
-        else {
+        }  else {
             // initial checks on data are ok, now check the db for valid credentials or not
             $result = $this->model_login->login_user();
             switch ($result) {
                 case 'logged_in':
                     // authenticated, send to logged in homepage
-                    redirect('/','location');
+                    $data['result'] = $result;
+                    redirect(site_url());
                     break;
                 case 'incorrect_password':
+                    $data['result'] = $result;
                     $data['view'] = 'view_login';
                     $this->load->view('default', $data);
                     break;
                 case 'not_activated':
+                    $data['result'] = $result;
                     $data['view'] = 'view_login';
                     $this->load->view('default', $data);
                     break;
                 case 'email_not_found':
+                    $data['result'] = $result;
+                    $data['view'] = 'view_login';
+                    $this->load->view('default', $data);
+                    break;
+                default:
+                    $data['result'] = 'all invalid';
                     $data['view'] = 'view_login';
                     $this->load->view('default', $data);
                     break;

@@ -48,7 +48,7 @@ class Registration extends CI_Controller {
 
 
             // returns users first name if successful
-            $result = $this->model_user->insert_user();
+            $result = $this->model_register->insert_user();
 
             if ($result) {
                 $data['view'] = 'view_reg_success';
@@ -61,7 +61,7 @@ class Registration extends CI_Controller {
     public function validate_email($email_address, $email_code){
         $email_code = trim($email_code);
         
-        $validated = $this->model_user->validate_email($email_address, $email_code);
+        $validated = $this->model_register->validate_email($email_address, $email_code);
         
         if ($validated === TRUE){
             $data['view'] = 'view_email_validated';

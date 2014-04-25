@@ -49,8 +49,8 @@
                         <!-- Nav -->
                         <nav id="nav">
                             <ul>
-                                <li class="current_page_item"><a href="registration">Sign Up</a></li>
-                                <li><a href="login">Sign In</a></li>
+                                <li class="current_page_item"><a href="<?php echo site_url(); ?>registration">Sign Up</a></li>
+                                <li><a href="<?php echo site_url(); ?>login">Sign In</a></li>
                                 <!--												<li><a href="right-sidebar.html">Right Sidebar</a></li>
                                                                                                                                 <li><a href="left-sidebar.html">Left Sidebar</a></li>
                                                                                                                                 <li><a href="no-sidebar.html">No Sidebar</a></li>-->

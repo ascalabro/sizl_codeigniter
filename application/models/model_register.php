@@ -33,7 +33,7 @@ class Model_register extends CI_Model {
                     buyer_phone,
                     buyer_email)
                 VALUES (" . $this->db->escape($email) . ","
-                . $this->db->escape(md5($password)) . ","
+                . $this->db->md5($password) . ","
                 . $this->db->escape($first_name) . ","
                 . $this->db->escape($last_name) . ","
                 . $this->db->escape($billing_address) . ","
