@@ -104,6 +104,7 @@ class Model_user extends CI_Model {
         $message .= '</body></html>';
         
         $this->email->message($message);
+        $this->email->send();
     }
     
     public function validate_email($email_address, $email_code){
