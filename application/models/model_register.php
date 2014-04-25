@@ -126,7 +126,7 @@ class Model_register extends CI_Model {
         
         if ($result->num_rows() === 1 && $row->buyer_first_name) {
             if (md5((string)$row->reg_time) === $email_code)
-                $result = $this->activate_account ($email_address);
+                $result = $this->activate_account($email_address);
             if ($result === TRUE){
                 return TRUE;
             } else {
