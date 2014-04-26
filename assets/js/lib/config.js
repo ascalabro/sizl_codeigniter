@@ -6,15 +6,28 @@
 
 window._skel_config = {
 	preset: 'standard',
-	prefix: 'assets/css/style',
+	prefix: 'http://localhost/sizl.tv_ci/assets/css/style',
 	resetCSS: true,
-	breakpoints: {
-		'1000px': {
-			grid: {
-				gutters: 20
-			}
-		}
-	}
+        breakpoints: {
+            'desktop': {
+                range: "1001-"
+            },
+            '1000px': {
+                range: "481-1000",
+                grid: {
+                    gutters: 22
+                }
+            },
+            'mobile': {
+                range: "-480",
+                containers: "fluid",
+                lockViewport: true,
+                grid: {
+                    collapse: true
+                }
+            }
+        }
+        
 };
 
 window._skel_panels_config = {

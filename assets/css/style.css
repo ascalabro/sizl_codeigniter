@@ -1341,7 +1341,6 @@ form li div label
 	color:#444;
 	display:block;
 	font-size: 14px;
-	line-height:9px;
 	margin:0;
 	padding: 9px;
 }
@@ -1703,6 +1702,9 @@ text-indent: -9999px;
 width: 51px;}
 
 
+
+             
+                
 .form-3 {
             font-family: 'Ubuntu', 'Lato', sans-serif;
             font-weight: 400;

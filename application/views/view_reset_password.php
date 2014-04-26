@@ -9,21 +9,23 @@
                 <div id="highlights">
                     <div>
                         <?php echo $result; ?>
-				<form action='<?php echo site_url(); ?>login/login_user' method="post" name="login_form" class="login_form form-3">
+				<form action='<?php echo site_url(); ?>login/reset_password' method="post" name="reset_password_form" class="login_form form-3">
 				    <p class="clearfix">
                                         <input type="hidden" name="domain" value="mem" />
                                         <input type="hidden" name="ip" value="127.0.0.1" />
 				        <input type="text" name="email" id="username" placeholder="Email">
 				    </p>
-				    <p class="clearfix">
-				        <input type="password" name="password" id="password" placeholder="Password"> 
-				    </p>
 				    <p>
-				        <input type="submit" name="submit" value="Sign in">
-                                        <span><a href="<?php echo site_url(); ?>login/reset_password">Forgot Password?</a>.</span><br>
+				        <input type="submit" name="submit" value="Reset My Password">
                                         <span>Not a member? Join <a href="<?php echo site_url(); ?>registration">here</a>.</span>
 				    </p>       
 				</form>
+                        <?php 
+                        echo validation_errors("<p class='errors'>");
+                        if (isset($error)){
+                            echo "<p class='error'>" . $error . "</p>";
+                        }
+                        ?>
                     </div>
                 </div>
                 <!-- /Highlights -->

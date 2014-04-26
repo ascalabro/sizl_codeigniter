@@ -13,7 +13,6 @@
         <script src="<?php echo site_url(); ?>assets/js/lib/config.js"></script>
         <script src="<?php echo site_url(); ?>assets/js/lib/skel.min.js"></script>
         <script src="<?php echo site_url(); ?>assets/js/lib/skel-panels.min.js"></script>
-        <script src="<?php echo site_url(); ?>assets/js/lib/jquery.min.js"></script>
         <script type="text/javascript" src="<?php echo site_url(); ?>assets/js/forms.js"/></script>
         <script src="<?php echo site_url(); ?>assets/js/lib/helper_functions.js"></script>
         <script  src="<?php echo site_url(); ?>assets/js/lib/jwplayer/jwplayer.js" type="text/javascript"></script>
@@ -22,10 +21,12 @@
         <script src="<?php echo site_url(); ?>assets/js/common.js"></script>
         
         <link rel="stylesheet" href="<?php echo site_url(); ?>assets/css/form.css" />
+        <noscript>
         <link rel="stylesheet" href="<?php echo site_url(); ?>assets/css/skel-noscript.css" />
         <link rel="stylesheet" href="<?php echo site_url(); ?>assets/css/style.css" />
         <link rel="stylesheet" href="<?php echo site_url(); ?>assets/css/style-desktop.css" />
-       
+        </noscript>
+
     </head>
     
     
