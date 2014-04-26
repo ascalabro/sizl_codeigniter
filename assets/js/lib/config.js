@@ -7,27 +7,27 @@
 window._skel_config = {
 	preset: 'standard',
 	prefix: 'http://localhost/sizl.tv_ci/assets/css/style',
-	resetCSS: true,
-        breakpoints: {
-            'desktop': {
-                range: "1001-"
-            },
-            '1000px': {
-                range: "481-1000",
-                grid: {
-                    gutters: 22
-                }
-            },
-            'mobile': {
-                range: "-480",
-                containers: "fluid",
-                lockViewport: true,
-                grid: {
-                    collapse: true
-                }
-            }
-        }
-        
+	resetCSS: true
+//        ,
+//        breakpoints: {
+//            'desktop': {
+//                range: "1001-"
+//            },
+//            '1000px': {
+//                range: "481-1000",
+//                grid: {
+//                    gutters: 22
+//                }
+//            },
+//            'mobile': {
+//                range: "-480",
+//                containers: "fluid",
+//                lockViewport: true,
+//                grid: {
+//                    collapse: true
+//                }
+//            }
+//        }
 };
 
 window._skel_panels_config = {
