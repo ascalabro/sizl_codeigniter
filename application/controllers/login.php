@@ -66,7 +66,7 @@ class Login extends CI_Controller {
             if ($this->form_validation->run() == FALSE) {
                 // email didn't validate, send back to reset password form and show the errors
                 // this will likely never occur due to front end validation done on type="email"
-                $data['view'] = 'view_login';
+                $data['view'] = 'view_reset_password';
                 $data['error'] = 'Please supply a valid email address.';
                 $this->load->view('default', $data);
             } else {
@@ -75,7 +75,7 @@ class Login extends CI_Controller {
                 
                 if ($result) {
                     // if we found the email, $result is now their first name
-                    $this->send_reset_password_email($email, $result);
+                    $this->model_login->send_reset_password_email($email, $result);
                     $data['view'] = 'view_reset_password_sent';
                     $this->load->view('default',$data);
                 } else {
@@ -86,6 +86,64 @@ class Login extends CI_Controller {
         }
         $data['view'] = 'view_reset_password';
         $this->load->view('default', $data);
+    }
+    
+    public function reset_password_form($email, $email_code){
+        
+        if(isset($email, $email_code)) {
+            $email = trim($email);
+            $email_hash = sha1($email . $email_code);
+            $verified = $this->model_login->verify_reset_password_code($email, $email-code);
+            
+            if ($verified) {
+                $data['email_hash'] = $email_hash;
+                $data['email_code'] = $email_code;
+                $data['email'] = $email;
+                $this->load->view('includes/header');
+                $this->load->view('view_reset_password', $data);
+                $this->load->view('includes/footer');
+            } else {
+                $data['error'] = 'There was a problem with your link. Please click it again or request to reset your password again';
+                $data['email'] = $email;
+                $this->load->view('includes/header');
+                $this->load->view('view_reset_password', $data);
+                $this->load->view('includes/footer');
+            }
+        }
+    }
+    
+    public function update_password() {
+        if (!isset($_POST['email'], $_POST['email_hash']) || $_POST['email_hash'] !== sha1($_POST['email'] . $_POST['email_code'] )) {
+            // if user is here, he is either a hacker or changed email in the email field, just die no reason to be polite;
+            die('Error updating your password');
+        }
+        
+        $this->load->library('form_validation');
+        
+        $this->form_validation->set_rules('email_hash','Email Hash', 'trim|required');
+        $this->form_validation->set_rules('email','Email', 'trim|required|valid_email|xss_clean');
+        $this->form_validation->set_rules('password','Password', 'trim|required|min_length[6]|max_length[50]|matches[password_conf]|xss_clean');
+        $this->form_validation->set_rules('password_conf','Confirmed Password', 'trim|required|min_length[6]|max_length[50]|matches[password]|xss_clean');
+        
+        if ($this->form_validation->run() == FALSE) {
+            // user didn't validate the reset password form, send him back to it and show errors
+            $data['view'] = 'view_update_password';
+            $this->load->view('default',$data);
+        } else {
+            // successful update
+            // return users first name if success
+            $result = $this->model_login->update_password();
+            
+            if ($result) {
+                $data['view'] = 'view_update_password_success';
+                $this->load->view('default',$data);
+            } else {
+                //this should never happen
+                $data['view'] = 'view_update_password';
+                $data['error'] = 'Error updating your password contact support.';
+                $this->load->view('default',$data);
+            }
+        }
     }
     
 }

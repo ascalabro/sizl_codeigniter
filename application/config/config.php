@@ -368,3 +368,5 @@ $config['noreply_email'] = 'no-reply@sizl.tv';
 
 /* End of file config.php */
 /* Location: ./application/config/config.php */
+
+$config['salt'] = '$d&a(a@&$@sd$df*f(d&@a$ew(a*';

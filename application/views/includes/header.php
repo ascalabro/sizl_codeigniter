@@ -25,7 +25,6 @@
         <link rel="stylesheet" href="<?php echo site_url(); ?>assets/css/skel-noscript.css" />
         <link rel="stylesheet" href="<?php echo site_url(); ?>assets/css/style.css" />
         <link rel="stylesheet" href="<?php echo site_url(); ?>assets/css/style-desktop.css" />
-        <link rel="stylesheet" href="<?php echo site_url(); ?>assets/css/style-mobile.css" />
         </noscript>
 
     </head>

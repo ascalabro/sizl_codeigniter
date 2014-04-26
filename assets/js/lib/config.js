@@ -7,7 +7,17 @@
 window._skel_config = {
 	preset: 'standard',
 	prefix: 'http://localhost/sizl.tv_ci/assets/css/style',
-	resetCSS: true
+	resetCSS: true,
+        breakpoints: {
+            'mobile': {
+                range: "-510",
+                containers: "fluid",
+                lockViewport: true,
+                grid: {
+                    collapse: true
+                }
+            }
+        }
 //        ,
 //        breakpoints: {
 //            'desktop': {

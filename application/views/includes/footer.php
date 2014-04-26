@@ -111,7 +111,7 @@
                 <!-- Copyright -->
                 <div id="copyright">
                     <span>
-                        &copy; Untitled. Design by <a href="http://html5up.net/">HTML5 UP</a>. <a href="cms">Back Office</a>.
+                        &copy; Untitled. Design by <a href="http://www.affableitsolutions.com/">Affable IT Solutions</a>. <a href="cms">Back Office</a>.
                     </span>
                 </div>
                 <!-- /Copyright -->
