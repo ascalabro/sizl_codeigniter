@@ -8,12 +8,11 @@
                 <!-- Highlights -->
                 <div id="highlights">
                     <div>
-                        <?php echo $result; ?>
 				<form action='<?php echo site_url(); ?>login/reset_password' method="post" name="reset_password_form" class="login_form form-3">
 				    <p class="clearfix">
                                         <input type="hidden" name="domain" value="mem" />
                                         <input type="hidden" name="ip" value="127.0.0.1" />
-				        <input type="text" name="email" id="username" placeholder="Email">
+				        <input type="email" name="email" id="username" placeholder="Email">
 				    </p>
 				    <p>
 				        <input type="submit" name="submit" value="Reset My Password">

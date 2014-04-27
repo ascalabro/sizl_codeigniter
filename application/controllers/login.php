@@ -89,18 +89,17 @@ class Login extends CI_Controller {
     }
     
     public function reset_password_form($email, $email_code){
-        
         if(isset($email, $email_code)) {
             $email = trim($email);
             $email_hash = sha1($email . $email_code);
-            $verified = $this->model_login->verify_reset_password_code($email, $email-code);
+            $verified = $this->model_login->verify_reset_password_code($email, $email_code);
             
             if ($verified) {
                 $data['email_hash'] = $email_hash;
                 $data['email_code'] = $email_code;
                 $data['email'] = $email;
                 $this->load->view('includes/header');
-                $this->load->view('view_reset_password', $data);
+                $this->load->view('view_update_password', $data);
                 $this->load->view('includes/footer');
             } else {
                 $data['error'] = 'There was a problem with your link. Please click it again or request to reset your password again';
@@ -109,6 +108,8 @@ class Login extends CI_Controller {
                 $this->load->view('view_reset_password', $data);
                 $this->load->view('includes/footer');
             }
+        } else {
+            #redirect();
         }
     }
     

@@ -51,7 +51,7 @@ class model_login extends CI_Model {
     }
 
     public function email_exists($email) {
-        $sql = "SELECT buyer_first_name, buyer_email, FROM mem_users WHERE buyer_email = '{$email}' LIMIT 1";
+        $sql = "SELECT buyer_first_name, buyer_email FROM mem_users WHERE buyer_email = '{$email}' LIMIT 1";
         $result = $this->db->query($sql);
         $row = $result->row();
 
@@ -59,7 +59,7 @@ class model_login extends CI_Model {
     }
 
     public function verify_reset_password_code($email, $code) {
-        $sql = "SELECT buyer_first_name, buyer_email, FROM mem_users WHERE buyer_email = '{$email}' LIMIT 1";
+        $sql = "SELECT buyer_first_name, buyer_email FROM mem_users WHERE buyer_email = '{$email}' LIMIT 1";
         $result = $this->db->query($sql);
         $row = $result->row();
 

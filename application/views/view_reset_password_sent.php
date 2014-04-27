@@ -1,7 +1,4 @@
 <?php
 
-/*
- * To change this template, choose Tools | Templates
- * and open the template in the editor.
- */
+echo 'email sent to you to reset your password';
 ?>

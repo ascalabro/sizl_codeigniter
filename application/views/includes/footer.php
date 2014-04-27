@@ -1,19 +1,18 @@
 <!-- Footer Wrapper -->
 <div id="footer-wrapper" class="wrapper">
-    <div class="title">The Rest Of It</div>
+    <!--<div class="title">The Rest Of It</div>-->
     <div class="container">
         <div class="row">
-            <div class="12u">
 
                 <!-- Footer -->
                 <div id="footer">
-                    <header class="style1">
+<!--                    <header class="style1">
                         <h2>Ipsum sapien elementum portitor?</h2>
                         <p class="byline">
                             Sed turpis tortor, tincidunt sed ornare in metus porttitor mollis nunc in aliquet.<br />
                             Nam pharetra laoreet imperdiet volutpat etiam consequat feugiat.
                         </p>
-                    </header>
+                    </header>-->
                     <hr />
                     <div>
                         <div class="row">
@@ -116,7 +115,6 @@
                 </div>
                 <!-- /Copyright -->
 
-            </div>
         </div>
     </div>
 </div>
