@@ -95,7 +95,7 @@ class model_login extends CI_Model {
     
     public function update_password() {
         $email = $this->input->post('email');
-        $new_password = sha1($this->config->item('salt') . $this->input->post('password'));
+        $new_password = md5($this->config->item('salt') . $this->input->post('password'));
         
         $sql = "UPDATE mem_users SET passwordhash = '{$new_password}' WHERE buyer_email = '{$email}' LIMIT 1";
         $this->db->query($sql);

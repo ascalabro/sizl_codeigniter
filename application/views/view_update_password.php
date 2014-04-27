@@ -21,5 +21,5 @@
             <input type="submit" name="submit" value="Update My Password">
         </p>       
     </form>
-    <?php  echo validation_errors("<p class='error'>");    ?>
+    <?php  echo validation_errors("<p class='error'>") ;    ?>
 </div>
