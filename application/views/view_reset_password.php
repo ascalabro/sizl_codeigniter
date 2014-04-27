@@ -12,7 +12,7 @@
 				    <p class="clearfix">
                                         <input type="hidden" name="domain" value="mem" />
                                         <input type="hidden" name="ip" value="127.0.0.1" />
-				        <input type="email" name="email" id="username" placeholder="Email">
+				        <input type="text" name="email" id="username" placeholder="Email">
 				    </p>
 				    <p>
 				        <input type="submit" name="submit" value="Reset My Password">

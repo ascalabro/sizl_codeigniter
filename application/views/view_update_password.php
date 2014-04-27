@@ -7,7 +7,7 @@
             <input type="hidden" name="email_hash" value="<?php echo $email_hash; ?>" />
             <input type="hidden" name="email_code" value="<?php echo $email_code; ?>" />
             <label for="email">Email: </label>
-            <input type="text" value="<?php echo (isset($email)) ? $email : ''; ?>"name="email" id="username" placeholder="Email">
+            <input type="text" value="<?php echo (isset($email)) ? $email : ''; ?>" name="email" id="username" placeholder="Email">
         </p>
         <p>
             <label for="password">New Password: </label>

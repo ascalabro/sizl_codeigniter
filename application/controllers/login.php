@@ -128,8 +128,12 @@ class Login extends CI_Controller {
         
         if ($this->form_validation->run() == FALSE) {
             // user didn't validate the reset password form, send him back to it and show errors
-            $data['view'] = 'view_update_password';
-            $this->load->view('default',$data);
+            $data['email_hash'] = $email_hash;
+                $data['email_code'] = $email_code;
+                $data['email'] = $email;
+                $this->load->view('includes/header');
+                $this->load->view('view_update_password', $data);
+                $this->load->view('includes/footer');
         } else {
             // successful update
             // return users first name if success
