@@ -44,28 +44,6 @@ INSERT INTO `cms_users` (`user_id`, `username`, `password`, `email`) VALUES
 -- --------------------------------------------------------
 
 --
--- Table structure for table `mem_session`
---
-
-CREATE TABLE IF NOT EXISTS `mem_session` (
-  `user_id` int(11) NOT NULL,
-  `login_time` datetime NOT NULL,
-  `user_login_email` varchar(255) NOT NULL,
-  `ses_id` varchar(26) NOT NULL,
-  UNIQUE KEY `ses_id` (`ses_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `mem_session`
---
-
-INSERT INTO `mem_session` (`user_id`, `login_time`, `user_login_email`, `ses_id`) VALUES
-(123, '2014-04-02 08:34:18', 'sally@msn.com', '79ba365e75a4f9cee074d25a60'),
-(456, '2014-04-02 04:09:17', 'fred@hotmail.com', 'bfc7747c4cf67a4aacc71d7a40');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `mem_sessions`
 --
 

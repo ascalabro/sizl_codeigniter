@@ -69,7 +69,7 @@ class Login extends CI_Controller {
             if ($this->form_validation->run() == FALSE) {
                 // email didn't validate, send back to reset password form and show the errors
                 // this will likely never occur due to front end validation done on type="email"
-                $data['view'] = 'view_reset_password';
+                $data['view'] = 'view_login';
                 $data['error'] = 'Please supply a valid email address.';
                 $this->load->view('default', $data);
             } else {

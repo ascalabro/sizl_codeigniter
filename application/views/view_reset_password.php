@@ -8,8 +8,16 @@
                 <!-- Highlights -->
                 <div id="highlights">
                     <div>
+                        
 				<form action='<?php echo site_url(); ?>login/reset_password' method="post" name="reset_password_form" class="login_form form-3">
-				    <p class="clearfix">
+				    <?php 
+                        echo validation_errors("<p class='errors'>");
+                        if (isset($error)){
+                            echo "<p class='error'>" . $error . "</p>";
+                        }
+                        ?>
+                                    
+                                    <p class="clearfix">
                                         <input type="hidden" name="domain" value="mem" />
                                         <input type="hidden" name="ip" value="127.0.0.1" />
 				        <input type="text" name="email" id="username" placeholder="Email">
@@ -19,12 +27,7 @@
                                         <span>Not a member? Join <a href="<?php echo site_url(); ?>registration">here</a>.</span>
 				    </p>       
 				</form>
-                        <?php 
-                        echo validation_errors("<p class='errors'>");
-                        if (isset($error)){
-                            echo "<p class='error'>" . $error . "</p>";
-                        }
-                        ?>
+                        
                     </div>
                 </div>
                 <!-- /Highlights -->
